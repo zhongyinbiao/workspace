@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "opencv3.5.2",
+            "command": "D:/yinbiao_z/tools/MinGw/bin/g++.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${workspaceFolder}\\Debugger\\${fileBasenameNoExtension}.exe",
+                //上面这个Debugger是我自己定义的，为了方便放置生成的exe文件
+                "D:/yinbiao_z/tools/opencv_4.5.2/opencv/build/x64/mingw/CMakeFiles/install/x64/mingw/bin/libopencv_world452.dll",
+                "-I",
+                "D:/yinbiao_z/tools/opencv_4.5.2/opencv/build/include",
+                "-I",
+                "D:/yinbiao_z/tools/opencv_4.5.2/opencv/build/include/opencv2",
+            ],
+            "options": {
+                "cwd": "D:/yinbiao_z/tools/MinGw/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
