@@ -3,6 +3,7 @@
 #include "opencv2/highgui/highgui.hpp"
 #include <iostream>
 #include <ctype.h>
+#include "opencv2/imgproc/imgproc_c.h"
 
 using namespace cv;
 using namespace std;
@@ -90,10 +91,19 @@ int main()
 	cout << "frame width:" << frame.rows << endl;
 	cout << "frame height:" << frame.cols << endl;
 
-	namedWindow("Histogram", 1);
-	namedWindow("CamShift Demo", 1);
+	cv::Point origin_point = cv::Point(0, 0);
+	cv::Point rows_end_point = cv::Point(0, frame.rows);
+	cv::Point cols_end_point = cv::Point(frame.cols, 0);
+	cv::Point end_point = cv::Point(frame.cols, frame.rows);
+
+	char str_point_xy[20] = "";
+	CvFont font_xy;
+	cvInitFont(&font_xy, 3, 0.5, 0.5, 1, 2, 8);
+
+	//namedWindow("Histogram", 1);
+	namedWindow("Map and Target", 1);
 	// 鼠标事件检测
-	setMouseCallback("CamShift Demo", onMouse, 0);
+	setMouseCallback("Map and Target", onMouse, 0);
 
 	while (true)
 	{
@@ -124,8 +134,8 @@ int main()
 			{
 				//hue是视频帧处理后的图像，selection是鼠标选定的矩形区域，同时创建一个感兴趣区域和一个标记感兴趣区域
 				Mat roi(hue, selection), maskroi(mask, selection);
-				imshow("ROI", roi);
-				imshow("maskROI", maskroi);
+				//imshow("ROI", roi);
+				//imshow("maskROI", maskroi);
 				calcHist(&roi, 1, 0, maskroi, hist, 1, &hsize, &phranges);
 				normalize(hist, hist, 0, 255, NORM_MINMAX);
 				trackWindow = selection;
@@ -147,14 +157,27 @@ int main()
 			// 投影视图
 			//cvtColor(backproj, image, COLOR_GRAY2BGR);
 
-			ellipse(image, trackBox, Scalar(0, 0, 255), 3, LINE_AA);
+			// 画 x / y 轴
+			//cv::line(image, origin_point, rows_end_point, Scalar(0, 0, 255), 3, LINE_AA);
+			//cv::line(image, origin_point, cols_end_point, Scalar(0, 0, 255), 3, LINE_AA);
+
+			// 画目标椭圆
+			ellipse(image, trackBox, Scalar(0, 255, 0), 1, LINE_AA);
+			// 画目标圆心
+			cv::circle(image, trackBox.center, 2, Scalar(0, 0, 255), LINE_4);
+			sprintf(str_point_xy, "  [%.1f, %.1f]", trackBox.center.x, trackBox.center.y);
+			putText(image, str_point_xy, trackBox.center, FONT_HERSHEY_PLAIN, 2.0, Scalar(0, 0, 255), 2);
+
+			// 画连接直线
+			cv::line(image, origin_point, trackBox.center, Scalar(0, 0, 255), 1, LINE_4);
+
 		}
 		if (selectObject && selection.width > 0 && selection.height > 0)
 		{
 			Mat roi(image, selection);
 			bitwise_not(roi, roi);
 		}
-		cv::imshow("CamShift Demo", image);
+		cv::imshow("Map and Target", image);
 
 		char c = (char)waitKey(10);
 		if (c == 27) break;
