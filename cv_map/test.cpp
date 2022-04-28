@@ -14,6 +14,7 @@ int main()
     {
         cap >> img;
         if (img.empty())
+            printf("img is empty!\n");
             break;
         namedWindow("img", WINDOW_NORMAL);
         imshow("img", img);
