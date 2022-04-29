@@ -42,8 +42,8 @@ void setup() {
   // use monitoring with serial 
   Serial.begin(115200);
   // comment out if not needed
-  motor.useMonitoring(Serial);
-  motor1.useMonitoring(Serial);
+  //motor.useMonitoring(Serial);
+  //motor1.useMonitoring(Serial);
   
   //初始化电机
   motor.init();
@@ -52,12 +52,16 @@ void setup() {
   motor1.initFOC();
 
 
+
   Serial.println("Motor ready.");
   _delay(1000);
   
 }
 
 void loop() {
+
+  Serial.println("test hello.");
+  _delay(1000);
 
   motor.loopFOC();
   motor1.loopFOC();

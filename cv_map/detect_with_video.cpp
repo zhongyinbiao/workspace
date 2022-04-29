@@ -186,8 +186,6 @@ int main()
 			// 画连接直线
 			cv::line(image, origin_point, trackBox.center, Scalar(0, 0, 255), 1, LINE_4);
 
-
-
 		}
 		if (selectObject && selection.width > 0 && selection.height > 0)
 		{
