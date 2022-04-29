@@ -56,12 +56,16 @@ void onMouse(int event, int x, int y, int, void*)
 	}
 }
 
+
 int main()
 {
 	int hsize = 16;
 	float hranges[] = { 0,180 };
 	const float* phranges = hranges;
 	Rect trackWindow;
+
+	// 记录轨迹
+	vector <Point> follow_points;
 
 	/*
 	VideoCapture cap;
@@ -166,10 +170,23 @@ int main()
 			// 画目标圆心
 			cv::circle(image, trackBox.center, 2, Scalar(0, 0, 255), LINE_4);
 			sprintf(str_point_xy, "  [%.1f, %.1f]", trackBox.center.x, trackBox.center.y);
+
+			// 填充并绘制轨迹点
+			follow_points.push_back(cv::Point(trackBox.center.x, trackBox.center.y));
+			if (follow_points.size() >= 1)
+			{
+				for(int index = 0; index < follow_points.size(); index++)
+				{
+					cv::circle(image, follow_points[index], 2, Scalar(0, 0, 255), LINE_4);
+				}
+			}
+
 			putText(image, str_point_xy, trackBox.center, FONT_HERSHEY_PLAIN, 2.0, Scalar(0, 0, 255), 2);
 
 			// 画连接直线
 			cv::line(image, origin_point, trackBox.center, Scalar(0, 0, 255), 1, LINE_4);
+
+
 
 		}
 		if (selectObject && selection.width > 0 && selection.height > 0)
