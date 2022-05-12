@@ -1,0 +1,26 @@
+Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~SimpleFOC.PrjPcb|ReportField=ProjectFullPath~D:\yinbiao_z\git_work_space\workspace\simplefoc\Hardware\SimpleFOC-PCB\SimpleFOC.PrjPcb|ReportField=Title~Bill of Materials For Project [SimpleFOC.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~46|ReportField=ReportTime~12:07:27|ReportField=ReportDate~2022/5/1|ReportField=ReportDateTime~2022/5/1 12:07:27|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~2022/5/1|ReportField=CurrentTime~12:06:48|ReportField=Date~|ReportField=DocumentFullPathAndName~D:\yinbiao_z\git_work_space\workspace\simplefoc\Hardware\SimpleFOC-PCB\SimpleFOC.SchDoc|ReportField=DocumentName~SimpleFOC.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~2022/4/26|ReportField=Organization~|ReportField=ProjectName~SimpleFOC.PrjPcb|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~1|ReportField=SheetTotal~1|ReportField=Time~|ReportField=Title~|ReportField=DataSourceFileName~SimpleFOC.PrjPcb|ReportField=DataSourceFullPath~D:\yinbiao_z\git_work_space\workspace\simplefoc\Hardware\SimpleFOC-PCB\SimpleFOC.PrjPcb
+AMS1117-3V3|三端稳压芯片|AMS1117-3V3|SOT223_L|AMS1117|1
+22uf/50V|贴片电容|C1, C4|C0603_L|C|2
+0.1uf/50V|贴片电容|C2, C3, C13, C14, C15, C16|C0603_L|C|6
+220nf/50V|贴片电容|C5, C6|C0603_L|C|2
+10nf/50V|贴片电容|C7, C8|C0603_L|C|2
+1uf/50V|贴片电容|C9, C10|C0603_L|C|2
+100nf/50V|贴片电容|C11, C12|C0603_L|C|2
+跳线||CHS_VCCINA|0603|跳线|1
+SS54|肖特基二极管(5A/40V)|D1|SMA|SS14|1
+BAT54C|两路肖特基二极管|D2, D3|SOT23-3N|LBAT54SLT1G|2
+220uf/16V|贴片电解电容|E1|CE D(6.3*7.7)|CE_SMD|1
+680uf/35V|贴片电解电容|E2|CE G(12.5*13.5)|CE_SMD|1
+100uf/35V|贴片电解电容|E3, E4|CE D(6.3*7.7)|CE_SMD|2
+INA240A2PWR|IC AMP CURRENT SENSE 8-TSSOP|INA_M1_O1, INA_M1_O2, INA_M2_O1, INA_M2_O2|INA240A2PWR|INA240A2PWR|4
+33uH|CDRH功率屏蔽电感|L1|CDRH74|L-CDRH|1
+L6234PD013TR|No Description Available|L6234_M1, L6234_M2|SOIC127P1420X360-21N|L6234PD013TR|2
+红色|贴片LED|LED_3V3|LED0603_R|LED-SMD|1
+LM2596S|3A DC-DC降压芯片|LM2596S|TO263-5A|LM2596S|1
+HDR-1X3|3P接插件|MOTOR1, MOTOR2|KF301-5.0-3P|Header 3|2
+Header 2X11|12*2P接插件|OUT|HDR2.54-LI-2x12P|Header 12X2|1
+1K|贴片电阻|R1|R0603_L|R|1
+4.7K|贴片电阻|R2, R3|R0603_L|R|2
+0.01R|贴片电阻|R4, R5, R6, R7|R0805_L|R|4
+SS-12F23|1路波动开关|S1|SS-12D10|SSW-1P|1
+HDR-1X2|2P接插件|VIN|KF301-5.0-2P|Header 2|1

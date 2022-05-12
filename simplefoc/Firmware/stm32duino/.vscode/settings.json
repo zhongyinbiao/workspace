@@ -6,6 +6,7 @@
         "pinmap.h": "c",
         "stm32yyxx_ll_gpio.h": "c",
         "pinnamesvar.h": "c",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "algorithm": "cpp"
     }
 }

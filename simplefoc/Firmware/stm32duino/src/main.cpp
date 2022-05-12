@@ -5,7 +5,6 @@ MagneticSensorI2C sensor1 = MagneticSensorI2C(AS5600_I2C);
 TwoWire I2Cone = TwoWire(PB7, PB6);
 TwoWire I2Ctwo = TwoWire(PB11, PB10);
 
-
 BLDCMotor motor = BLDCMotor(7);
 BLDCDriver3PWM driver = BLDCDriver3PWM(PA0, PA1, PA2, PA3);
 
@@ -51,17 +50,22 @@ void setup() {
   motor.initFOC();
   motor1.initFOC();
 
-
-
   Serial.println("Motor ready.");
   _delay(1000);
   
 }
 
+float get_m_angle = 0;
+float v_angle = 0.0;
+
 void loop() {
 
-  Serial.println("test hello.");
-  _delay(1000);
+  //Serial.println("test hello.");
+  get_m_angle = motor.sensor->getMechanicalAngle();
+  v_angle = 180.0  * 0.318310 * get_m_angle;
+  Serial.println("Get. Rad: " + String(get_m_angle) + ", Angle: " + String(v_angle));
+  
+  //_delay(100);
 
   motor.loopFOC();
   motor1.loopFOC();
